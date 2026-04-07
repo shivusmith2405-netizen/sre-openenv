@@ -7,14 +7,18 @@ name = "sre-openenv-simulation"
 version = "0.1.0"
 description = "A high-fidelity SRE simulation environment for AI training"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "fastapi",
     "uvicorn",
     "python-multipart",
     "requests",
-    "pyyaml"
+    "pyyaml",
+    "openenv-core>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:app"
 
 [project.optional-dependencies]
 dev = ["pytest", "black"]

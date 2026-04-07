@@ -18,16 +18,14 @@ RUN mkdir -p /app/static
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend files
-COPY backend/ ./backend/
+# Copy server files
+COPY server/ ./server/
 COPY openenv.yaml .
 COPY inference.py .
 
 # Copy built frontend from builder stage
 COPY --from=frontend-builder /app/frontend/dist/ /app/static/
 
-WORKDIR /app/backend
-
 # Run the project on Hugging Face Spaces port 7860
 EXPOSE 7860
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "7860"]
