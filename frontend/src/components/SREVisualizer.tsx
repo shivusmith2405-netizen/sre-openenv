@@ -94,9 +94,9 @@ export function SREVisualizer() {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const response = await fetch('http://localhost:8000/state')
+        const response = await fetch('/state')
         const stateData = await response.json()
-        const rewardRes = await fetch('http://localhost:8000/reward')
+        const rewardRes = await fetch('/reward')
         const rewardData = await rewardRes.json()
         
         setData({ services: stateData.services, reward: rewardData.reward })
@@ -178,19 +178,19 @@ export function SREVisualizer() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4">
         <div className="flex gap-4">
           <button
-            onClick={() => fetch('http://localhost:8000/reset?task_id=1', { method: 'POST' })}
+            onClick={() => fetch('/reset?task_id=1', { method: 'POST' })}
             className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/40 border border-blue-500/30 rounded-lg text-[10px] font-bold text-blue-300 uppercase tracking-widest transition-all"
           >
             Load Easy
           </button>
           <button
-            onClick={() => fetch('http://localhost:8000/reset?task_id=2', { method: 'POST' })}
+            onClick={() => fetch('/reset?task_id=2', { method: 'POST' })}
             className="px-4 py-2 bg-yellow-500/20 hover:bg-yellow-500/40 border border-yellow-500/30 rounded-lg text-[10px] font-bold text-yellow-300 uppercase tracking-widest transition-all"
           >
             Load Medium
           </button>
           <button
-            onClick={() => fetch('http://localhost:8000/reset?task_id=3', { method: 'POST' })}
+            onClick={() => fetch('/reset?task_id=3', { method: 'POST' })}
             className="px-4 py-2 bg-red-500/20 hover:bg-red-500/40 border border-red-500/30 rounded-lg text-[10px] font-bold text-red-300 uppercase tracking-widest transition-all"
           >
             Load Hard
@@ -202,7 +202,7 @@ export function SREVisualizer() {
             <div key={s.name} className="flex gap-2">
               <button
                 onClick={async () => {
-                  await fetch('http://localhost:8000/step', {
+                  await fetch('/step', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ type: 'restart_service', target: s.name })
@@ -214,7 +214,7 @@ export function SREVisualizer() {
               </button>
               <button
                 onClick={async () => {
-                  await fetch('http://localhost:8000/step', {
+                  await fetch('/step', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ type: 'kill_process', target: s.name })

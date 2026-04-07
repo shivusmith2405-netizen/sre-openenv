@@ -45,8 +45,9 @@ async def get_reward():
     return {"reward": env.get_reward()}
 
 # Serve Static Frontend if exists
-if os.path.exists("./static"):
-    app.mount("/", StaticFiles(directory="./static", html=True), name="static")
+static_dir = "../static" if os.path.exists("../static") else "./static"
+if os.path.exists(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
