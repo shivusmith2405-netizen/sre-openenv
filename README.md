@@ -1,3 +1,13 @@
+---
+title: Sre Openenv Simulation
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🛡️ Modern SRE OpenEnv
 
 A high-fidelity simulation environment for training AI agents in Site Reliability Engineering (SRE) tasks. This environment simulates a 3-tier cloud service (API, DB, Auth) with dynamic failure modes.
