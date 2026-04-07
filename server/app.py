@@ -49,7 +49,10 @@ static_dir = "../static" if os.path.exists("../static") else "./static"
 if os.path.exists(static_dir):
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 
-if __name__ == "__main__":
+def main():
     import uvicorn
     # Use port 7860 as requested for Hugging Face Spaces
     uvicorn.run(app, host="0.0.0.0", port=7860)
+
+if __name__ == "__main__":
+    main()
