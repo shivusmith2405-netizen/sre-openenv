@@ -44,7 +44,7 @@ function Monolith({ name, status, position, cpu }: { name: string, status: strin
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5} position={position}>
       <mesh ref={meshRef}>
         <boxGeometry args={[1, 1.5, 1]} />
-        <MeshStandardMaterial 
+        <meshStandardMaterial 
           metalness={0.9} 
           roughness={0.1} 
           transparent 
