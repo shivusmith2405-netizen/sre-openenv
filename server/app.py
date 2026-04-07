@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from environment import env, Action, EnvironmentState
+from .environment import env, Action, EnvironmentState
 from typing import Dict, Optional
 import os
 
