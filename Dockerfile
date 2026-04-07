@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend files
 COPY backend/ ./backend/
 COPY openenv.yaml .
-COPY baseline_inference.py .
+COPY inference.py .
 
 # Copy built frontend from builder stage
 COPY --from=frontend-builder /app/frontend/dist/ /app/static/
